@@ -6,8 +6,8 @@ const router = express.Router();
 // Create a new order
 router.post('/orders', async (req, res) => {
   try {
-    const { items, totalPrice } = req.body;
-    const order = new Order({ items, totalPrice });
+    const { items, totalPrice, address } = req.body; // Get the address from the request body
+    const order = new Order({ items, totalPrice, address }); // Include the address in the order
     const savedOrder = await order.save();
     res.status(201).json(savedOrder);
   } catch (err) {
