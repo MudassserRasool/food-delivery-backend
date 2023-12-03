@@ -11,6 +11,8 @@ const orderSchema = new mongoose.Schema({
   totalPrice: Number,
   orderDate: { type: Date, default: Date.now },
   address: String, // Add the address field
+  phoneNumber: String, // Add the phoneNumber field
+  userName: String,    // Add the userName field
 });
 
 const Order = mongoose.model('Order', orderSchema);
