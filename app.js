@@ -1,8 +1,8 @@
 
 
-const express = require('express');
-const mongoose = require('mongoose');
-const orderRoutes = require('./routes/order');
+import express from 'express';
+import mongoose from 'mongoose';
+import orderRoutes from './routes/order.js';
 const app = express();
 const port = process.env.PORT || 3000;
 
