@@ -1,5 +1,7 @@
-import mongoose from 'mongoose';
-import Order from '../models/orderModel.js';
+// import mongoose from 'mongoose';
+// import Order from '../models/orderModel.js';
+const mongoose = require('mongoose');
+const Order = require('../models/orderModel.js');
 
 const placeOrder = async (req, res) => {
   try {
@@ -43,4 +45,5 @@ const deleteOrder = async (req, res) => {
     res.status(500).json({ error: 'Error deleting order' });
   }
 };
-export { deleteOrder, placeOrder };
+// export { deleteOrder, placeOrder };
+module.exports = { placeOrder, getOrders, deleteOrder };

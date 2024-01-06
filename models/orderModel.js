@@ -1,4 +1,5 @@
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
   items: [
@@ -12,9 +13,10 @@ const orderSchema = new mongoose.Schema({
   orderDate: { type: Date, default: Date.now },
   address: String,
   phoneNumber: String,
-  userName: String,  
+  userName: String,
 });
 
 const Order = mongoose.model('Order', orderSchema);
 
-export default Order;
+// export default Order;
+module.exports = Order;

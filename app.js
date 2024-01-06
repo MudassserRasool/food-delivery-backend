@@ -2,7 +2,7 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
-// const orderRoutes = require('./routes/order');
+const orderRoutes = require('./routes/order');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -16,10 +16,12 @@ const db = mongoose.connection;
 db.on('error', (error) => console.error('MongoDB connection error:', error));
 db.once('open', () => console.log('Connected to MongoDB'));
 
-app.use('/api', async (req, res) => {
-  console.log('sadsa')
-});
-
+// app.use('/api', async (req, res) => {
+//   console.log('sadsa')
+// });
+// app.use('/api/workouts', workoutRouter);
+// app.use('/api/user', router);
+app.use('/api/orders', orderRoutes);
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
