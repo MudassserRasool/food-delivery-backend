@@ -1,18 +1,11 @@
-const express = require('express');
-const Order = require('../models/order');
+import express from 'express';
+import { placeOrder,deleteOrder } from '../controllers/orderControllers.js';
 
 const router = express.Router();
 
-// Create a new order
-router.post('/orders', async (req, res) => {
-  try {
-    const { items, totalPrice, address, phoneNumber, userName } = req.body;
-    const order = new Order({ items, totalPrice, address, phoneNumber, userName }); 
-    const savedOrder = await order.save();
-    res.status(201).json(savedOrder);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-});
+router.post('/', placeOrder);
 
-module.exports = router;
+//
+router.delete('/:id',deleteOrder );
+
+export default router;

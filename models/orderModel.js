@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const orderSchema = new mongoose.Schema({
   items: [
@@ -10,11 +10,11 @@ const orderSchema = new mongoose.Schema({
   ],
   totalPrice: Number,
   orderDate: { type: Date, default: Date.now },
-  address: String, // Add the address field
-  phoneNumber: String, // Add the phoneNumber field
-  userName: String,    // Add the userName field
+  address: String,
+  phoneNumber: String,
+  userName: String,  
 });
 
 const Order = mongoose.model('Order', orderSchema);
 
-module.exports = Order;
+export default Order;
