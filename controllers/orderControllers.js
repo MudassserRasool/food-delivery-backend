@@ -1,5 +1,4 @@
-// import mongoose from 'mongoose';
-// import Order from '../models/orderModel.js';
+
 const mongoose = require('mongoose');
 const Order = require('../models/orderModel.js');
 
@@ -32,18 +31,16 @@ const getOrders = async (req, res) => {
 
 const deleteOrder = async (req, res) => {
   try {
-    const { id } = req.params;
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(404).send(`No workout with id: ${id}`);
-    }
-    const order = await Order.findByIdAndDelete(id); // findByIdAndDelete
-    if (!order) {
-      return res.status(400).json({ message: 'workout not found' });
-    }
+    // const { id } = req.params;
+    const orderId = req.params.orderId;
+
+    // Implement logic to delete the order from the database
+    await Order.findOneAndDelete({ _id: orderId });
+
+    res.status(204).send(); // Respond with a 204 No Content status for success
   } catch (error) {
     console.error('Error deleting order:', error);
     res.status(500).json({ error: 'Error deleting order' });
   }
 };
-// export { deleteOrder, placeOrder };
 module.exports = { placeOrder, getOrders, deleteOrder };

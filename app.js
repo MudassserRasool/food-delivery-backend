@@ -20,7 +20,7 @@ db.once('open', () => console.log('Connected to MongoDB'));
 //   console.log('sadsa')
 // });
 // app.use('/api/workouts', workoutRouter);
-// app.use('/api/user', router);
+app.use('/api/user', router);
 app.use('/api/orders', orderRoutes);
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
